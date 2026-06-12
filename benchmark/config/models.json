@@ -1,0 +1,20 @@
+{
+    "models": [
+      {
+        "name": "qwen3:4b",
+        "enabled": true
+      },
+      {
+        "name": "gemma3:4b",
+        "enabled": true
+      },
+      {
+        "name": "deepseek-r1:7b",
+        "enabled": true
+      },
+      {
+        "name": "llama3.2:3b",
+        "enabled": true
+      }
+    ]
+  }

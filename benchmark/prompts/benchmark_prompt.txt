@@ -1,0 +1,12 @@
+You are participating in an AI model benchmark.
+
+Instructions:
+1. Answer thoroughly.
+2. Explain your reasoning.
+3. Mention assumptions when necessary.
+4. Structure your answer clearly.
+5. Provide practical insights where possible.
+
+Question:
+
+{question}

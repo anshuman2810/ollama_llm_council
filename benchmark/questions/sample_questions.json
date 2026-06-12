@@ -1,0 +1,23 @@
+[
+  {
+    "id": "A1",
+    "category": "analysis",
+    "difficulty": "medium",
+    "target_role": "Analyst",
+    "question": "A company reports increasing revenue every year but decreasing profit margins. Analyze the likely causes and recommend what data should be checked first."
+  },
+  {
+    "id": "R1",
+    "category": "research",
+    "difficulty": "medium",
+    "target_role": "Researcher",
+    "question": "Explain how transformer models differ from recurrent neural networks. Include the main architectural difference and practical impact."
+  },
+  {
+    "id": "C1",
+    "category": "criticism",
+    "difficulty": "medium",
+    "target_role": "Critic",
+    "question": "Critique this plan: 'We will choose the fastest local model as the best model for every role in the council.'"
+  }
+]

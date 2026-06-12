@@ -1,0 +1,352 @@
+[
+  {
+    "id": "A1",
+    "category": "analysis",
+    "difficulty": "medium",
+    "target_role": "Analyst",
+    "question": "A company reports increasing revenue every year but decreasing profit margins. Analyze the likely causes and recommend what data should be checked first."
+  },
+  {
+    "id": "A2",
+    "category": "analysis",
+    "difficulty": "medium",
+    "target_role": "Analyst",
+    "question": "A student studies four hours daily but exam scores are not improving. Analyze possible reasons and suggest a structured improvement approach."
+  },
+  {
+    "id": "A3",
+    "category": "analysis",
+    "difficulty": "hard",
+    "target_role": "Analyst",
+    "question": "Analyze the trade-offs of running a local LLM council on a 4GB VRAM GPU instead of using a single cloud-hosted large model."
+  },
+  {
+    "id": "A4",
+    "category": "analysis",
+    "difficulty": "medium",
+    "target_role": "Analyst",
+    "question": "A mobile app has many downloads but poor daily active users. Analyze possible product, technical, and marketing causes."
+  },
+  {
+    "id": "A5",
+    "category": "analysis",
+    "difficulty": "hard",
+    "target_role": "Analyst",
+    "question": "A benchmark shows one model is fast but shallow, while another is slow but detailed. Analyze how this affects assigning roles in an LLM council."
+  },
+  {
+    "id": "A6",
+    "category": "analysis",
+    "difficulty": "medium",
+    "target_role": "Analyst",
+    "question": "Analyze why a model might give correct final answers but weak explanations, and explain how that should affect evaluation."
+  },
+  {
+    "id": "A7",
+    "category": "analysis",
+    "difficulty": "hard",
+    "target_role": "Analyst",
+    "question": "A small business wants to automate customer support with local AI. Analyze benefits, risks, limitations, and the first safe implementation step."
+  },
+  {
+    "id": "A8",
+    "category": "analysis",
+    "difficulty": "medium",
+    "target_role": "Analyst",
+    "question": "Analyze the difference between measuring model quality by human preference, factual accuracy, and task completion."
+  },
+  {
+    "id": "A9",
+    "category": "analysis",
+    "difficulty": "medium",
+    "target_role": "Analyst",
+    "question": "A local model sometimes refuses harmless technical questions. Analyze possible causes and how to measure this behavior."
+  },
+  {
+    "id": "A10",
+    "category": "analysis",
+    "difficulty": "hard",
+    "target_role": "Analyst",
+    "question": "Analyze how context window size, response length, and temperature can change benchmark results between local LLMs."
+  },
+  {
+    "id": "R1",
+    "category": "research",
+    "difficulty": "medium",
+    "target_role": "Researcher",
+    "question": "Explain how transformer models differ from recurrent neural networks. Include the main architectural difference and practical impact."
+  },
+  {
+    "id": "R2",
+    "category": "research",
+    "difficulty": "medium",
+    "target_role": "Researcher",
+    "question": "Research-style answer: explain quantization for local LLMs, including why Q4 models are useful on limited VRAM."
+  },
+  {
+    "id": "R3",
+    "category": "research",
+    "difficulty": "medium",
+    "target_role": "Researcher",
+    "question": "Explain what tokens are in LLMs and why prompt tokens, response tokens, and tokens per second matter in benchmarking."
+  },
+  {
+    "id": "R4",
+    "category": "research",
+    "difficulty": "hard",
+    "target_role": "Researcher",
+    "question": "Explain the difference between embeddings, reranking, and generation in a retrieval-augmented generation system."
+  },
+  {
+    "id": "R5",
+    "category": "research",
+    "difficulty": "medium",
+    "target_role": "Researcher",
+    "question": "Explain the difference between precision, recall, F1-score, and accuracy using a medical diagnosis example."
+  },
+  {
+    "id": "R6",
+    "category": "research",
+    "difficulty": "medium",
+    "target_role": "Researcher",
+    "question": "Explain what model hallucination means, why it happens, and how a council of models might reduce it."
+  },
+  {
+    "id": "R7",
+    "category": "research",
+    "difficulty": "hard",
+    "target_role": "Researcher",
+    "question": "Compare Llama, Qwen, Gemma, and DeepSeek model families at a high level without claiming exact benchmark scores."
+  },
+  {
+    "id": "R8",
+    "category": "research",
+    "difficulty": "medium",
+    "target_role": "Researcher",
+    "question": "Explain the difference between RAM and VRAM for local LLM inference, and why model size alone does not determine speed."
+  },
+  {
+    "id": "R9",
+    "category": "research",
+    "difficulty": "hard",
+    "target_role": "Researcher",
+    "question": "Explain how an LLM benchmark can be made reproducible, including prompt settings, model versions, and hardware details."
+  },
+  {
+    "id": "R10",
+    "category": "research",
+    "difficulty": "medium",
+    "target_role": "Researcher",
+    "question": "Explain the purpose of a judge model in an LLM evaluation pipeline and the limitations of model-based judging."
+  },
+  {
+    "id": "C1",
+    "category": "criticism",
+    "difficulty": "medium",
+    "target_role": "Critic",
+    "question": "Critique this plan: 'We will choose the fastest local model as the best model for every role in the council.'"
+  },
+  {
+    "id": "C2",
+    "category": "criticism",
+    "difficulty": "medium",
+    "target_role": "Critic",
+    "question": "Critique this benchmark question: 'Which model is smartest?' Explain why it is weak and how to improve it."
+  },
+  {
+    "id": "C3",
+    "category": "criticism",
+    "difficulty": "hard",
+    "target_role": "Critic",
+    "question": "Critique the idea of using only one LLM judge to score all benchmark responses. Identify risks and safeguards."
+  },
+  {
+    "id": "C4",
+    "category": "criticism",
+    "difficulty": "medium",
+    "target_role": "Critic",
+    "question": "Critique this answer: 'Local LLMs are always private and secure because they run offline.'"
+  },
+  {
+    "id": "C5",
+    "category": "criticism",
+    "difficulty": "hard",
+    "target_role": "Critic",
+    "question": "A model gives a confident answer with no assumptions, no caveats, and no sources. Critique the response quality and possible failure modes."
+  },
+  {
+    "id": "C6",
+    "category": "criticism",
+    "difficulty": "medium",
+    "target_role": "Critic",
+    "question": "Critique a project that stores only final scores but not raw model responses during benchmarking."
+  },
+  {
+    "id": "C7",
+    "category": "criticism",
+    "difficulty": "medium",
+    "target_role": "Critic",
+    "question": "Critique this role assignment: 'The largest model should always be the Judge because it has more parameters.'"
+  },
+  {
+    "id": "C8",
+    "category": "criticism",
+    "difficulty": "hard",
+    "target_role": "Critic",
+    "question": "Find weaknesses in a benchmark that uses only coding questions to assign Analyst, Researcher, Critic, and Judge roles."
+  },
+  {
+    "id": "C9",
+    "category": "criticism",
+    "difficulty": "medium",
+    "target_role": "Critic",
+    "question": "Critique this response style: very long answer, many headings, but no direct recommendation."
+  },
+  {
+    "id": "C10",
+    "category": "criticism",
+    "difficulty": "hard",
+    "target_role": "Critic",
+    "question": "Critique the assumption that a model that performs best in isolation will also perform best inside a multi-model council."
+  },
+  {
+    "id": "D1",
+    "category": "decision",
+    "difficulty": "medium",
+    "target_role": "Judge",
+    "question": "Choose between two options for a local AI project: simple single-model chatbot or multi-model council. State your decision and justify it."
+  },
+  {
+    "id": "D2",
+    "category": "decision",
+    "difficulty": "medium",
+    "target_role": "Judge",
+    "question": "A model is accurate but slow. Another is fast but sometimes misses details. Decide which should be used for interactive chat and explain."
+  },
+  {
+    "id": "D3",
+    "category": "decision",
+    "difficulty": "hard",
+    "target_role": "Judge",
+    "question": "Given four council roles, decide what qualities matter most for Analyst, Researcher, Critic, and Judge. Rank the qualities by role."
+  },
+  {
+    "id": "D4",
+    "category": "decision",
+    "difficulty": "medium",
+    "target_role": "Judge",
+    "question": "Decide whether benchmark scoring should prioritize quality, speed, or consistency for this project. Explain the trade-off."
+  },
+  {
+    "id": "D5",
+    "category": "decision",
+    "difficulty": "hard",
+    "target_role": "Judge",
+    "question": "Two models disagree on an answer. One is more detailed, the other is more concise and correct on key facts. Decide which answer should win and why."
+  },
+  {
+    "id": "D6",
+    "category": "decision",
+    "difficulty": "medium",
+    "target_role": "Judge",
+    "question": "Decide whether to auto-pull missing Ollama models during a benchmark or stop and ask the user. Consider reliability and user control."
+  },
+  {
+    "id": "D7",
+    "category": "decision",
+    "difficulty": "medium",
+    "target_role": "Judge",
+    "question": "A benchmark run is interrupted after 120 of 200 responses. Decide how the runner should resume and avoid duplicate work."
+  },
+  {
+    "id": "D8",
+    "category": "decision",
+    "difficulty": "hard",
+    "target_role": "Judge",
+    "question": "Decide whether a weaker but more diverse model should be included in the council even if it scores lower overall."
+  },
+  {
+    "id": "D9",
+    "category": "decision",
+    "difficulty": "medium",
+    "target_role": "Judge",
+    "question": "Choose the better evaluation artifact: a CSV table, JSON records, or a written report. Explain which should be primary and why."
+  },
+  {
+    "id": "D10",
+    "category": "decision",
+    "difficulty": "hard",
+    "target_role": "Judge",
+    "question": "Decide how to assign final council roles after benchmarking if the same model wins multiple categories."
+  },
+  {
+    "id": "P1",
+    "category": "planning",
+    "difficulty": "medium",
+    "target_role": "Planner",
+    "question": "Create a step-by-step plan to benchmark four Ollama models across 50 questions and store 200 responses."
+  },
+  {
+    "id": "P2",
+    "category": "planning",
+    "difficulty": "medium",
+    "target_role": "Planner",
+    "question": "Plan the folder and file organization for a local LLM council project after the benchmark phase is complete."
+  },
+  {
+    "id": "P3",
+    "category": "planning",
+    "difficulty": "hard",
+    "target_role": "Planner",
+    "question": "Create a phased development roadmap for building a local LLM council from benchmark runner to final council orchestration."
+  },
+  {
+    "id": "P4",
+    "category": "planning",
+    "difficulty": "medium",
+    "target_role": "Planner",
+    "question": "Plan how to measure response time, prompt tokens, response tokens, and tokens per second during a benchmark."
+  },
+  {
+    "id": "P5",
+    "category": "planning",
+    "difficulty": "hard",
+    "target_role": "Planner",
+    "question": "Plan a resume-safe benchmark process that can continue after a crash without losing previous model responses."
+  },
+  {
+    "id": "P6",
+    "category": "planning",
+    "difficulty": "medium",
+    "target_role": "Planner",
+    "question": "Create a plan for manually evaluating model responses after raw benchmark generation is complete."
+  },
+  {
+    "id": "P7",
+    "category": "planning",
+    "difficulty": "medium",
+    "target_role": "Planner",
+    "question": "Plan a warmup procedure for local models before benchmark timing begins."
+  },
+  {
+    "id": "P8",
+    "category": "planning",
+    "difficulty": "hard",
+    "target_role": "Planner",
+    "question": "Plan how a future LLM council should combine Analyst, Researcher, Critic, and Judge outputs into one final answer."
+  },
+  {
+    "id": "P9",
+    "category": "planning",
+    "difficulty": "medium",
+    "target_role": "Planner",
+    "question": "Create a testing plan for verifying that benchmark outputs are saved correctly for every model and question."
+  },
+  {
+    "id": "P10",
+    "category": "planning",
+    "difficulty": "hard",
+    "target_role": "Planner",
+    "question": "Plan the next iteration after collecting 200 raw responses, including evaluation, role assignment, and council prototype design."
+  }
+]
