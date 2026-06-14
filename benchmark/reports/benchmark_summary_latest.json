@@ -1,46 +1,52 @@
 {
-  "started_at": "2026-06-12T18:15:14",
-  "finished_at": "2026-06-12T18:32:58",
+  "started_at": "2026-06-13T14:03:03",
+  "finished_at": "2026-06-13T15:25:23",
   "models": [
     "qwen3:4b",
     "gemma3:4b",
     "deepseek-r1:7b",
     "llama3.2:3b"
   ],
-  "question_count": 3,
-  "expected_responses": 12,
-  "stored_responses": 12,
+  "question_count": 20,
+  "expected_responses": 80,
+  "stored_responses": 80,
   "by_model": {
     "qwen3:4b": {
-      "responses": 3,
-      "avg_response_time": 120.215,
-      "avg_tokens_per_second": 17.244
+      "responses": 20,
+      "avg_response_time": 53.114,
+      "avg_tokens_per_second": 19.412
     },
     "gemma3:4b": {
-      "responses": 3,
-      "avg_response_time": 94.422,
-      "avg_tokens_per_second": 12.197
+      "responses": 20,
+      "avg_response_time": 76.405,
+      "avg_tokens_per_second": 12.682
     },
     "deepseek-r1:7b": {
-      "responses": 3,
-      "avg_response_time": 125.345,
-      "avg_tokens_per_second": 8.67
+      "responses": 20,
+      "avg_response_time": 103.497,
+      "avg_tokens_per_second": 8.916
     },
     "llama3.2:3b": {
-      "responses": 3,
-      "avg_response_time": 14.647,
-      "avg_tokens_per_second": 39.75
+      "responses": 20,
+      "avg_response_time": 13.941,
+      "avg_tokens_per_second": 42.922
     }
   },
   "by_category": {
     "analysis": {
-      "responses": 4
+      "responses": 16
     },
     "research": {
-      "responses": 4
+      "responses": 16
     },
     "criticism": {
-      "responses": 4
+      "responses": 16
+    },
+    "decision": {
+      "responses": 16
+    },
+    "planning": {
+      "responses": 16
     }
   },
   "results_file": "D:\\Projects\\LLM Council\\benchmark\\outputs\\benchmark_results_latest.json"
