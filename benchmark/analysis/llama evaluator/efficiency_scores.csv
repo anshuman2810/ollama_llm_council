@@ -1,0 +1,5 @@
+model,avg_score,avg_response_time,efficiency
+deepseek-r1:7b,42.52,105.678,0.40236
+gemma3:4b,46.22,87.695,0.52706
+llama3.2:3b,44.74,12.648,3.53727
+qwen3:4b,42.56,44.61,0.95405

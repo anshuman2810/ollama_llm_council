@@ -1,0 +1,5 @@
+model,metric_stddev
+deepseek-r1:7b,1.90188
+gemma3:4b,1.75267
+llama3.2:3b,1.71722
+qwen3:4b,1.8398

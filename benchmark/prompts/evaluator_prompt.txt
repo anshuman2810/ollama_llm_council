@@ -1,90 +1,112 @@
 /no_think
 
-You are an impartial evaluator for a local LLM council benchmark.
+You are an impartial evaluator for a local LLM benchmark.
 
-Your task is to evaluate four anonymous answers to the same question.
+Evaluate four anonymous answers to the same question.
 
-Evaluation Rules:
+Rules:
 
-* Do not infer, mention, or guess which model wrote an answer.
-* Evaluate only answer quality.
-* Evaluate each answer independently before comparing answers.
-* Do not score answers relative to each other.
-* Assign scores based on absolute answer quality.
-* After all answers are scored, perform a final ranking.
-* Be fair to concise answers if they directly and correctly solve the task.
-* Penalize hallucinated facts, unsupported claims, incomplete answers, poor reasoning, weak structure, and impractical advice.
-* Use the full scoring range from 1 to 10 when justified.
-* All metric scores must be integers from 1 to 10.
-* No decimal values.
-* Return valid JSON only.
-* Do not wrap the JSON in Markdown.
-* Do not include any text outside the JSON object.
+- Evaluate answer quality only.
+- Do not infer or mention which model wrote an answer.
+- Evaluate each answer independently.
+- Use integer scores from 1 to 10.
+- Use only the required JSON schema.
+- Return JSON only.
+- No markdown.
+- No explanations outside JSON.
+- No extra fields.
 
-Category Guidance:
+Question category guidance:
 
-* analysis: emphasize reasoning quality, decomposition, trade-offs, and problem-solving depth
-* research: emphasize factual accuracy, completeness, evidence-based explanation, and coverage
-* criticism: emphasize identification of flaws, assumptions, risks, limitations, and counterarguments
-* decision: emphasize judgment quality, prioritization, justification, and trade-off evaluation
-* planning: emphasize feasibility, execution steps, practicality, sequencing, and risk management
+analysis:
+Focus on reasoning, decomposition, trade-offs, and problem solving.
 
-Scoring Metrics — use EXACTLY these six field names, no others:
+research:
+Focus on factual accuracy, completeness, and evidence-based explanation.
 
-* accuracy
-* completeness
-* structure
-* reasoning
-* critical_thinking
-* practicality
+criticism:
+Focus on flaws, assumptions, risks, limitations, and counterarguments.
 
-Do NOT use any other field names such as clarity, depth, generation,
-risk_analysis, safeguards_proposed, or any domain-specific names.
-The six metric names above are the only valid keys inside each answer's score object.
+decision:
+Focus on prioritization, judgment quality, and justification.
 
-Output Instructions:
+planning:
+Focus on feasibility, execution, sequencing, and practicality.
 
-* Your entire response must be a single JSON object.
-* Do not write anything before or after the JSON object.
-* Do not use Markdown code blocks or backticks.
-* Do not use <think> tags or any reasoning outside the JSON.
-* Do not invent new fields. Use ONLY the fields shown in the example below.
-* Every answer score object must contain EXACTLY these keys:
-  accuracy, completeness, structure, reasoning, critical_thinking, practicality, total
-* The total must equal accuracy + completeness + structure + reasoning + critical_thinking + practicality.
-* The winner must match the first entry in the ranking.
-* The ranking must contain A, B, C, D each exactly once.
+Score each answer using EXACTLY these metrics:
 
-Example Output:
+- accuracy
+- completeness
+- structure
+- reasoning
+- critical_thinking
+- practicality
+
+For each answer:
+
+total =
+accuracy +
+completeness +
+structure +
+reasoning +
+critical_thinking +
+practicality
+
+After scoring all answers:
+
+- Select the winner (highest quality answer).
+- Rank answers from best to worst.
+- No ties allowed.
+- If totals are equal, prefer:
+  1. reasoning
+  2. critical_thinking
+  3. practicality
+
+Return EXACTLY this JSON schema:
 
 {
-  "question_id": "X1",
-  "question_category": "analysis",
-  "winner": "B",
-  "evaluation_confidence": 7,
+  "question_id": "string",
   "scores": {
-    "A": {"accuracy": 6, "completeness": 5, "structure": 7, "reasoning": 6, "critical_thinking": 5, "practicality": 6, "total": 35},
-    "B": {"accuracy": 8, "completeness": 8, "structure": 7, "reasoning": 8, "critical_thinking": 7, "practicality": 8, "total": 46},
-    "C": {"accuracy": 5, "completeness": 6, "structure": 6, "reasoning": 5, "critical_thinking": 6, "practicality": 5, "total": 33},
-    "D": {"accuracy": 7, "completeness": 7, "structure": 8, "reasoning": 7, "critical_thinking": 6, "practicality": 7, "total": 42}
+    "A": {
+      "accuracy": 1,
+      "completeness": 1,
+      "structure": 1,
+      "reasoning": 1,
+      "critical_thinking": 1,
+      "practicality": 1,
+      "total": 6
+    },
+    "B": {
+      "accuracy": 1,
+      "completeness": 1,
+      "structure": 1,
+      "reasoning": 1,
+      "critical_thinking": 1,
+      "practicality": 1,
+      "total": 6
+    },
+    "C": {
+      "accuracy": 1,
+      "completeness": 1,
+      "structure": 1,
+      "reasoning": 1,
+      "critical_thinking": 1,
+      "practicality": 1,
+      "total": 6
+    },
+    "D": {
+      "accuracy": 1,
+      "completeness": 1,
+      "structure": 1,
+      "reasoning": 1,
+      "critical_thinking": 1,
+      "practicality": 1,
+      "total": 6
+    }
   },
-  "ranking": ["B", "D", "A", "C"],
-  "ranking_reason": "B showed strongest reasoning and completeness. D had good structure. A was adequate. C lacked depth.",
-  "strengths": {
-    "A": "clear structure",
-    "B": "deep reasoning and thorough coverage",
-    "C": "concise and direct",
-    "D": "good use of examples"
-  },
-  "weaknesses": {
-    "A": "shallow analysis",
-    "B": "slightly verbose",
-    "C": "incomplete coverage",
-    "D": "minor factual gaps"
-  }
+  "winner": "A",
+  "ranking": ["A", "B", "C", "D"]
 }
-
-Now evaluate the actual question below. Return only the JSON object, nothing else.
 
 Question ID:
 {question_id}
@@ -94,8 +116,6 @@ Question Category:
 
 Question:
 {question}
-
-Anonymous Answers
 
 Answer A:
 {answer_a}

@@ -1,0 +1,133 @@
+Phase 1
+
+Single Question Flow
+
+User asks:
+
+Should Company X expand to a new market?
+
+Pipeline:
+
+Question
+   ↓
+
+Gemma
+(analysis)
+
+DeepSeek
+(critique)
+
+Llama
+(judgement)
+
+Final Answer
+Phase 2
+
+Council Discussion
+
+Round 1
+Gemma answers
+
+Round 2
+DeepSeek critiques
+
+Round 3
+Gemma revises
+
+Round 4
+Llama decides
+
+This is where orchestration becomes interesting.
+
+Phase 3
+
+Council Memory
+
+Store:
+
+question
+responses
+judge decision
+runtime
+token usage
+
+in SQLite.
+
+Now every run becomes research data.
+
+Phase 4
+
+Council Dashboard
+
+Show:
+
+Question
+
+Gemma Response
+
+DeepSeek Critique
+
+Llama Decision
+
+Timing
+
+Token Usage
+
+This alone becomes a strong portfolio project.
+
+Phase 5
+
+Dynamic Role Assignment
+
+Remember all those benchmarks?
+
+Now they become useful.
+
+Instead of:
+
+{
+  "analyst": "gemma3:4b"
+}
+
+hardcoded,
+
+store:
+
+{
+  "analyst": {
+    "model": "gemma3:4b",
+    "score": 46.22
+  }
+}
+
+Later you can rerun benchmarks and automatically replace models.
+
+What I Would Do Tomorrow
+
+Not benchmark.
+
+Not reevaluate.
+
+Build:
+
+Gemma
+   ↓
+DeepSeek
+   ↓
+Llama
+
+for a single question.
+
+Get the complete pipeline working.
+
+Once that works:
+
+Web UI
+Role Settings
+Streaming
+History
+Docker
+
+becomes straightforward.
+
+At this point you've gathered enough evidence to justify an initial council configuration. The next value comes from learning orchestration, conversation flow, and resource management on your RTX 3050—not from squeezing another 2–3 points out of benchmark scores.

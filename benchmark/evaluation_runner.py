@@ -18,7 +18,7 @@ OUTPUTS_DIR = BASE_DIR / "outputs"
 EVALUATIONS_DIR = BASE_DIR / "evaluations"
 
 OLLAMA_URL = "http://127.0.0.1:11434"
-DEFAULT_EVALUATOR_MODEL = "qwen3:4b"
+DEFAULT_EVALUATOR_MODEL = "llama3.2:3b"
 EVALUATION_LATEST = EVALUATIONS_DIR / "evaluation_results_latest.json"
 
 MODEL_FOLDERS = {
@@ -35,7 +35,7 @@ METRICS = ["accuracy", "completeness", "structure", "reasoning", "critical_think
 # mistral:7b has a 32K context window so 800 words per answer is comfortable:
 # Template ~700 tokens + 4 answers * 800 words (~1,067 tokens each) = ~5,000 tokens in.
 # Leaves ~3,000 tokens for the JSON response output.
-MAX_ANSWER_WORDS = 800
+MAX_ANSWER_WORDS = 350
 
 
 def load_json(path):
@@ -209,18 +209,23 @@ def evaluate_question(evaluator_model, prompt):
         "model": evaluator_model,
         "prompt": prompt,
         "system": (
-            "You are a JSON-only evaluation engine. "
-            "You must respond with a single valid JSON object exactly matching the schema shown. "
-            "Do not think out loud. Do not use <think> tags. "
-            "Do not add fields not in the example. "
-            "Your entire response must start with { and end with }."
+            "You are a JSON compiler. "
+            "Output exactly one valid JSON object. "
+            "No markdown. "
+            "No explanations. "
+            "No prose. "
+            "No reasoning. "
+            "No <think> tags. "
+            "Do not invent fields. "
+            "The first character must be '{' "
+            "and the last character must be '}'."
         ),
         "stream": False,
         "format": "json",
         "options": {
             "temperature": 0,
-            "top_p": 1,
-            "num_predict": 2048,
+            "top_p": 0.8,
+            "num_predict": 512,
         },
     }
     started = time.perf_counter()
@@ -288,14 +293,25 @@ def validate_evaluation(evaluation, question_id):
             total += value
         item["total"] = total
 
-    ranking = evaluation.get("ranking")
-    if not isinstance(ranking, list) or sorted(ranking) != ANSWER_LABELS:
-        ranking = sorted(ANSWER_LABELS, key=lambda label: scores[label]["total"], reverse=True)
-        evaluation["ranking"] = ranking
+    # ranking = evaluation.get("ranking")
+    ranking = sorted(
+    ANSWER_LABELS,
+    key=lambda label:
+        (
+            scores[label]["total"],
+            scores[label]["reasoning"],
+            scores[label]["critical_thinking"],
+            scores[label]["practicality"]
+        ),
+    reverse=True
+    )
 
-    if not evaluation.get("ranking_reason"):
-        evaluation["ranking_reason"] = "Ranking generated from total metric scores."
+    evaluation["ranking"] = ranking
+    # if not isinstance(ranking, list) or sorted(ranking) != ANSWER_LABELS:
+    #     ranking = sorted(ANSWER_LABELS, key=lambda label: scores[label]["total"], reverse=True)
+    #     evaluation["ranking"] = ranking
 
+    evaluation["winner"] = ranking[0]
     return evaluation
 
 
@@ -359,19 +375,56 @@ def run_evaluation(evaluator_model, models, questions, prompt_template, seed):
         print(f"[{index}/{total}] Evaluating {question_id} blindly")
         blind_answers, answer_key = build_blind_answers(models, question_id, seed)
         prompt = build_prompt(prompt_template, question, blind_answers)
-        raw_evaluator_response, evaluation_time = evaluate_question(evaluator_model, prompt)
-        try:
-            parsed = parse_json_response(raw_evaluator_response)
-            evaluation = validate_evaluation(parsed, question_id)
-        except ValueError as exc:
-            print(f"  [WARN] JSON parse failed for {question_id}: {exc}")
-            print(f"  [WARN] Skipping and saving raw response for manual review.")
-            save_json(EVALUATIONS_DIR / f"{question_id}_failed.json", {
-                "question_id": question_id,
-                "error": str(exc),
-                "raw_evaluator_response": raw_evaluator_response,
-            })
-            continue
+        evaluation = None
+        raw_evaluator_response = ""
+
+        for attempt in range(3):
+
+            try:
+
+                raw_evaluator_response, evaluation_time = (
+                    evaluate_question(
+                        evaluator_model,
+                        prompt
+                    )
+                )
+
+                parsed = parse_json_response(
+                    raw_evaluator_response
+                )
+
+                evaluation = validate_evaluation(
+                    parsed,
+                    question_id
+                )
+
+                break
+
+            except Exception as exc:
+
+                print(
+                    f"  Retry {attempt+1}/3 failed: {exc}"
+                )
+
+                if attempt == 2:
+
+                    save_json(
+                        EVALUATIONS_DIR /
+                        f"{question_id}_failed.json",
+                        {
+                            "question_id": question_id,
+                            "error": str(exc),
+                            "raw_response": raw_evaluator_response
+                        }
+                    )
+
+                    print(
+                        f"  FAILED: {question_id}"
+                    )
+
+                    evaluation = None
+                if evaluation is None:
+                    continue
 
         result = {
             "question_id": question_id,
@@ -381,9 +434,7 @@ def run_evaluation(evaluator_model, models, questions, prompt_template, seed):
             "evaluation_time": evaluation_time,
             "scores": evaluation["scores"],
             "ranking": evaluation["ranking"],
-            "ranking_reason": evaluation["ranking_reason"],
             "answer_key": answer_key,
-            "raw_evaluator_response": raw_evaluator_response,
         }
 
         run_data["evaluations"].append(result)

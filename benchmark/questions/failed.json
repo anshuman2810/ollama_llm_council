@@ -1,0 +1,17 @@
+[
+  
+    {
+      "id": "A2",
+      "category": "analysis",
+      "difficulty": "medium",
+      "target_role": "Analyst",
+      "question": "A student studies four hours daily but exam scores are not improving. Analyze possible reasons and suggest a structured improvement approach."
+    },
+    {
+        "id": "R9",
+        "category": "research",
+        "difficulty": "hard",
+        "target_role": "Researcher",
+        "question": "Explain how an LLM benchmark can be made reproducible, including prompt settings, model versions, and hardware details."
+      }
+]

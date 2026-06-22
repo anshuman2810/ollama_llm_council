@@ -1,0 +1,13 @@
+winner,loser,wins
+gemma3:4b,qwen3:4b,43
+gemma3:4b,llama3.2:3b,35
+deepseek-r1:7b,qwen3:4b,33
+llama3.2:3b,qwen3:4b,32
+gemma3:4b,deepseek-r1:7b,29
+llama3.2:3b,deepseek-r1:7b,26
+deepseek-r1:7b,llama3.2:3b,24
+deepseek-r1:7b,gemma3:4b,21
+qwen3:4b,llama3.2:3b,18
+qwen3:4b,deepseek-r1:7b,17
+llama3.2:3b,gemma3:4b,15
+qwen3:4b,gemma3:4b,7

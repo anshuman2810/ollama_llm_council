@@ -1,0 +1,22 @@
+============================================================
+LLM COUNCIL BENCHMARK REPORT
+============================================================
+
+OVERALL RANKING
+1. gemma3:4b (Score=46.76)
+2. llama3.2:3b (Score=43.08)
+3. deepseek-r1:7b (Score=42.96)
+4. qwen3:4b (Score=40.38)
+
+CATEGORY WINNERS
+analysis: gemma3:4b
+research: gemma3:4b
+criticism: gemma3:4b
+decision: gemma3:4b
+planning: gemma3:4b
+
+FIRST PLACE COUNTS
+gemma3:4b: 22
+deepseek-r1:7b: 16
+llama3.2:3b: 10
+qwen3:4b: 2

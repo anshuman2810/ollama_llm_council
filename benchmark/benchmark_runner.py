@@ -157,7 +157,7 @@ def build_options(settings):
     return options
 
 
-def print_benchmark_summary(models, questions, settings, questions_path):
+def print_benchmark_summary(models, questions, settings, questions_path, question_range=None):
     categories = {}
     for question in questions:
         categories[question["category"]] = categories.get(question["category"], 0) + 1
@@ -168,6 +168,8 @@ def print_benchmark_summary(models, questions, settings, questions_path):
     print(f"Models: {len(models)}")
     for model in models:
         print(f"  - {model}")
+    if question_range:
+        print(f"Question range: {question_range}")
     print(f"Questions: {len(questions)}")
     for category, count in sorted(categories.items()):
         print(f"  - {category}: {count}")
@@ -289,6 +291,36 @@ def generate_summary(run_data, models, questions, started_at, finished_at):
     save_json(SUMMARY_LATEST, summary)
     return summary
 
+def apply_question_range(questions, question_range):
+    if not question_range:
+        return questions
+
+    try:
+        start_str, end_str = question_range.split(":", 1)
+
+        start = int(start_str) if start_str else 1
+        end = int(end_str) if end_str else len(questions)
+
+    except ValueError:
+        raise ValueError(
+            "--question-range must be in format start:end "
+            "(examples: 1:10, 11:20, 50:)"
+        )
+
+    if start < 1:
+        raise ValueError("Question range start must be >= 1")
+
+    if end < start:
+        raise ValueError("Question range end must be >= start")
+
+    selected = questions[start - 1 : end]
+
+    if not selected:
+        raise ValueError(
+            f"No questions selected from range {question_range}"
+        )
+
+    return selected
 
 def run_benchmark(models, settings, questions, prompt_template):
     started_at = datetime.now().isoformat(timespec="seconds")
@@ -300,6 +332,7 @@ def run_benchmark(models, settings, questions, prompt_template):
         "settings": settings,
         "models": models,
         "question_count": len(questions),
+        "question_range": settings.get("question_range"),
         "responses": existing_results,
     }
 
@@ -334,14 +367,25 @@ def main():
     parser = argparse.ArgumentParser(description="Run the local Ollama LLM council role benchmark.")
     parser.add_argument("--yes", action="store_true", help="Skip interactive confirmation.")
     parser.add_argument(
-        "--questions",
-        default="sample_questions.json",
-        help="Question file from benchmark/questions. Default: sample_questions.json",
+    "--questions",
+    default="sample_questions.json",
+    help="Question file from benchmark/questions. Default: sample_questions.json",
+    )
+    parser.add_argument(
+        "--question-range",
+        type=str,
+        default=None,
+        help="Range of questions to run. Examples: 1:10, 11:20, 50:",
     )
     args = parser.parse_args()
+    
 
     print("1. Load Config")
     models, settings, questions, prompt_template, questions_path = load_config(args.questions)
+    questions = apply_question_range(
+        questions,
+        args.question_range,
+    )
 
     print("2. Start/Verify Ollama")
     start_or_verify_ollama()
@@ -354,7 +398,7 @@ def main():
     warmup_models(models, settings)
 
     print("6. Benchmark Summary")
-    print_benchmark_summary(models, questions, settings, questions_path)
+    print_benchmark_summary(models, questions, settings, questions_path, args.question_range)
 
     print("7. User Confirmation")
     ask_user_confirmation(args.yes)

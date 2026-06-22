@@ -1,0 +1,5 @@
+model,avg_total_score,wins,questions
+gemma3:4b,46.76,22,50
+llama3.2:3b,43.08,10,50
+deepseek-r1:7b,42.96,16,50
+qwen3:4b,40.38,2,50

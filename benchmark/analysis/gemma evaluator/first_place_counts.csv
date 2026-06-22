@@ -1,0 +1,5 @@
+model,wins
+qwen3:4b,16
+deepseek-r1:7b,13
+gemma3:4b,12
+llama3.2:3b,9

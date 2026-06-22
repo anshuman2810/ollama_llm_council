@@ -1,0 +1,5 @@
+model,first,second,third,fourth
+deepseek-r1:7b,13,8,10,19
+gemma3:4b,12,25,6,7
+llama3.2:3b,9,15,16,10
+qwen3:4b,16,2,18,14

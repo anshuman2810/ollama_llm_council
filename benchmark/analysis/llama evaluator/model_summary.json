@@ -1,0 +1,26 @@
+{
+    "deepseek-r1:7b": {
+        "avg_score": 42.52,
+        "wins": 11,
+        "avg_response_time": 105.678,
+        "avg_tps": 9.063
+    },
+    "gemma3:4b": {
+        "avg_score": 46.22,
+        "wins": 16,
+        "avg_response_time": 87.695,
+        "avg_tps": 11.784
+    },
+    "llama3.2:3b": {
+        "avg_score": 44.74,
+        "wins": 9,
+        "avg_response_time": 12.648,
+        "avg_tps": 49.152
+    },
+    "qwen3:4b": {
+        "avg_score": 42.56,
+        "wins": 14,
+        "avg_response_time": 44.61,
+        "avg_tps": 23.728
+    }
+}
