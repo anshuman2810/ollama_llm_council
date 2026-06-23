@@ -1,0 +1,67 @@
+[2026-06-23 09:47:31] Question received
+[2026-06-23 09:47:31] Running Analyst (gemma3:4b)
+[2026-06-23 09:49:53] Question received
+[2026-06-23 09:49:53] Running Analyst (gemma3:4b)
+[2026-06-23 09:50:48] Running Critic (deepseek-r1:7b)
+[2026-06-23 09:52:57] Running Judge (llama3.2:3b)
+[2026-06-23 09:53:13] Council run saved: 20260623_095313.json
+[2026-06-23 09:59:43] Question received
+[2026-06-23 09:59:43] Running Analyst (gemma3:4b)
+[2026-06-23 10:00:05] Running Critic (deepseek-r1:7b)
+[2026-06-23 10:01:33] Running Judge (llama3.2:3b)
+[2026-06-23 10:01:40] Council run saved: 20260623_100140.json
+[2026-06-23 10:03:48] Question received
+[2026-06-23 10:03:48] Running Analyst (gemma3:4b)
+[2026-06-23 10:04:07] Running Critic (deepseek-r1:7b)
+[2026-06-23 10:05:16] Running Judge (llama3.2:3b)
+[2026-06-23 10:05:24] Council run saved: 20260623_100524.json
+[2026-06-23 10:07:14] Question received
+[2026-06-23 10:07:14] Running Analyst (gemma3:4b)
+[2026-06-23 10:07:37] Running Critic (deepseek-r1:7b)
+[2026-06-23 10:08:26] Running Judge (llama3.2:3b)
+[2026-06-23 10:08:30] Council run saved: 20260623_100830.json
+[2026-06-23 10:12:01] Question received
+[2026-06-23 10:12:01] Running Analyst (gemma3:4b)
+[2026-06-23 10:12:07] Running Critic (deepseek-r1:7b)
+[2026-06-23 10:13:01] Running Judge (llama3.2:3b)
+[2026-06-23 10:13:04] Council run saved: 20260623_101304.json
+[2026-06-23 10:19:01] Question received
+[2026-06-23 10:19:01] Running Analyst (gemma3:4b)
+[2026-06-23 10:19:54] Running Critic (deepseek-r1:7b)
+[2026-06-23 10:21:47] Running Judge (llama3.2:3b)
+[2026-06-23 10:21:54] Council run saved: q1.json
+[2026-06-23 10:22:08] Question received
+[2026-06-23 10:22:08] Running Analyst (gemma3:4b)
+[2026-06-23 10:23:11] Running Critic (deepseek-r1:7b)
+[2026-06-23 10:25:12] Running Judge (llama3.2:3b)
+[2026-06-23 10:25:28] Council run saved: q2.json
+[2026-06-23 10:25:54] Question received
+[2026-06-23 10:25:54] Running Analyst (gemma3:4b)
+[2026-06-23 10:26:43] Running Critic (deepseek-r1:7b)
+[2026-06-23 10:28:10] Running Judge (llama3.2:3b)
+[2026-06-23 10:28:20] Council run saved: q3.json
+[2026-06-23 10:29:35] Question received
+[2026-06-23 10:29:35] Running Analyst (gemma3:4b)
+[2026-06-23 10:30:35] Running Critic (deepseek-r1:7b)
+[2026-06-23 10:32:52] Running Judge (llama3.2:3b)
+[2026-06-23 10:33:00] Council run saved: q4.json
+[2026-06-23 10:36:44] Question received
+[2026-06-23 10:36:44] Running Analyst (gemma3:4b)
+[2026-06-23 10:37:43] Running Critic (deepseek-r1:7b)
+[2026-06-23 10:39:56] Running Judge (llama3.2:3b)
+[2026-06-23 10:40:08] Council run saved: q1.json
+[2026-06-23 10:40:22] Question received
+[2026-06-23 10:40:22] Running Analyst (gemma3:4b)
+[2026-06-23 10:41:18] Running Critic (deepseek-r1:7b)
+[2026-06-23 10:43:13] Running Judge (llama3.2:3b)
+[2026-06-23 10:43:34] Council run saved: q2.json
+[2026-06-23 10:43:40] Question received
+[2026-06-23 10:43:40] Running Analyst (gemma3:4b)
+[2026-06-23 10:44:37] Running Critic (deepseek-r1:7b)
+[2026-06-23 10:45:47] Running Judge (llama3.2:3b)
+[2026-06-23 10:46:03] Council run saved: q3.json
+[2026-06-23 10:46:10] Question received
+[2026-06-23 10:46:10] Running Analyst (gemma3:4b)
+[2026-06-23 10:47:16] Running Critic (deepseek-r1:7b)
+[2026-06-23 10:48:47] Running Judge (llama3.2:3b)
+[2026-06-23 10:48:58] Council run saved: q4.json

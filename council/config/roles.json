@@ -1,0 +1,5 @@
+{
+    "analyst": "gemma3:4b",
+    "critic": "deepseek-r1:7b",
+    "judge": "llama3.2:3b"
+  }
